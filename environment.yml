@@ -12,4 +12,5 @@ dependencies:
   - jupyter
   - plotly
   - kaggle
+  - pyarrow
 prefix: /home/prof-adept/anaconda3/envs/vg-sales-env

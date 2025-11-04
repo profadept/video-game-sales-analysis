@@ -59,12 +59,31 @@ pip install -r requirements.txt
 
 ## 📥 Downloading the Dataset
 
-After activating the environment, run this inside the notebook or terminal:
+### 🔑 Setting up the Kaggle API
+To use the Kaggle command below, you must first set up your Kaggle API credentials:
+
+1. Go to your [Kaggle Account Settings](https://www.kaggle.com/settings/account) or create one if you don't have.  
+2. Click on **Settings** from your Profile Dashborad and Scroll to **API** and click **Create New API Token**. This will download a file named `kaggle.json`.
+3. Move the file to your home directory’s hidden `.kaggle` folder:
+   ```bash
+   mkdir -p ~/.kaggle
+   mv ~/Downloads/kaggle.json ~/.kaggle/
+   chmod 600 ~/.kaggle/kaggle.json
+   ```
+   - `~/.kaggle/` is where the Kaggle CLI looks for your credentials.  
+   - `chmod 600` ensures your key file is private and secure.
+4. Verify installation:
+   ```bash
+   kaggle --version
+   ```
+   If you see a version number (e.g., `Kaggle API 1.7.4.5`), your setup is correct.
+
+Once configured, run this inside the notebook or terminal:
 ```bash
 kaggle datasets download -d rush4ratio/video-game-sales-with-ratings -p data/ --unzip
 ```
 
-This will automatically create the `data/` folder (if missing) and extract the CSV file for analysis.
+This command will automatically create the `data/` folder (if missing) and extract the CSV file for analysis.
 
 ---
 
