@@ -1,4 +1,10 @@
 # 🎮 Video Game Sales Analysis
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Made with Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange)
+
+Exploratory Data Analysis (EDA) of global video game sales to uncover trends across **genres**, **platforms**, and **regions** using Python data tools.
+
 
 Exploratory Data Analysis (EDA) of global video game sales to uncover trends across **genres**, **platforms**, and **regions** using Python data tools.
 
