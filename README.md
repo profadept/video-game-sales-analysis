@@ -26,7 +26,7 @@ regions from 1980 to 2016, using data sourced from VGChartz via Kaggle.
 | Field   | Detail                                                                 |
 |---------|------------------------------------------------------------------------|
 | Source  | [VGChartz via Kaggle](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) |
-| Records | 16,719 titles (post-cleaning: ~16,291)                                 |
+| Records | 16,719 titles (post-cleaning: 16444)                                 |
 | Period  | 1980 – 2016                                                            |
 | License | CC0 Public Domain                                                      |
 
@@ -37,7 +37,7 @@ See [`data/README.md`](data/README.md) for download instructions.
 ## How to Run
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/profadept/video-game-sales-analysis.git
 cd video-game-sales-analysis
 uv sync
 uv run python scripts/download_data.py
