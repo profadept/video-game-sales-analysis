@@ -1,8 +1,29 @@
-__pycache__/
-.ipynb_checkpoints/
-.vscode/
-.env
-*.pyc
-*.pkl
+# ── Data ──────────────────────────────────────────
+# Raw and processed data are never committed.
+# See data/README.md for download instructions.
+data/raw/
+data/processed/
+*.csv
+*.xlsx
 *.json
+*.parquet
+*.db
 
+# ── Jupyter ───────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── uv / Python ───────────────────────────────────
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# ── OS ────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Credentials (never ever commit these) ─────────
+.env
+kaggle.json
+*.key

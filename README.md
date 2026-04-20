@@ -1,121 +1,81 @@
-# 🎮 Video Game Sales Analysis
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![Made with Jupyter](https://img.shields.io/badge/Made%20with-Jupyter-orange)
+# Video Game Sales Analysis
 
-Exploratory Data Analysis (EDA) of global video game sales to uncover trends across **genres**, **platforms**, and **regions** using Python data tools.
-
-
-Exploratory Data Analysis (EDA) of global video game sales to uncover trends across **genres**, **platforms**, and **regions** using Python data tools.
+Exploratory analysis of global video game sales across genres, platforms, and
+regions from 1980 to 2016, using data sourced from VGChartz via Kaggle.
 
 ---
 
-## 📊 Project Overview
+## Key Findings
 
-This project explores the **Video Game Sales with Ratings** dataset from Kaggle to answer key analytical questions such as:
-- Which game genres and platforms have dominated sales over time?
-- How do critic and user ratings relate to global sales?
-- Which publishers achieved the highest commercial success?
-
----
-
-## 🧰 Tools and Libraries
-
-- **Python 3.11**
-- **Pandas**, **NumPy** – data cleaning and transformation  
-- **Seaborn**, **Matplotlib** – static visualization  
-- **Plotly** – interactive charts  
-- **Jupyter Notebook** – exploration workflow  
-- **Kaggle API** – automated data acquisition  
+- **Action dominates by volume but not efficiency.** Platform and Shooter titles
+  yield a higher average revenue per release, making them more viable targets for
+  studios entering a saturated market.
+- **Sony and Microsoft control the commercial ceiling.** The PS2, Xbox 360, and PS3
+  account for the highest cumulative software revenue of any hardware in the dataset.
+- **Critic scores are weakly correlated with sales.** Titles scoring in the 60–80
+  range regularly achieve blockbuster commercial results, indicating that marketing,
+  bundling, and brand recognition are stronger drivers than critical reception.
+- **Regional tastes diverge sharply.** North America and Europe follow broadly
+  similar genre preferences, while Japan shows a disproportionate concentration in
+  Role-Playing Games relative to both western markets.
 
 ---
 
-## 🧱 Project Structure
+## Dataset
+
+| Field   | Detail                                                                 |
+|---------|------------------------------------------------------------------------|
+| Source  | [VGChartz via Kaggle](https://www.kaggle.com/datasets/rush4ratio/video-game-sales-with-ratings) |
+| Records | 16,719 titles (post-cleaning: ~16,291)                                 |
+| Period  | 1980 – 2016                                                            |
+| License | CC0 Public Domain                                                      |
+
+See [`data/README.md`](data/README.md) for download instructions.
+
+---
+
+## How to Run
+
+```bash
+git clone <repo-url>
+cd video-game-sales-analysis
+uv sync
+uv run python scripts/download_data.py
+jupyter notebook notebooks/Video_Game_Sales_EDA.ipynb
+```
+
+---
+
+## Project Structure
 
 ```
-video-game-sales-analysis/
-├── data/                # Dataset (downloaded via Kaggle API)
-├── figures/             # Saved plots and visualizations
-├── notebooks/           # Jupyter notebooks for analysis
+├── data/
+│   └── README.md               ← download instructions
+├── notebooks/
 │   └── Video_Game_Sales_EDA.ipynb
-├── environment.yml      # Conda environment file
-├── requirements.txt     # Pip dependencies
+├── outputs/
+│   └── figures/                ← saved charts (generated on run)
+├── scripts/
+│   └── download_data.py
 ├── .gitignore
+├── pyproject.toml
 └── README.md
 ```
 
 ---
 
-## ⚙️ Setup Instructions
+## Analysis Pipeline
 
-### For Conda users
-```bash
-conda env create -f environment.yml
-conda activate vg-sales-env
 ```
-
-### For pip/venv users
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
-pip install -r requirements.txt
+Problem Definition → Data Loading → Inspection → Cleaning →
+Feature Engineering → EDA → Conclusions
 ```
 
 ---
 
-## 📥 Downloading the Dataset
+## Limitations
 
-### 🔑 Setting up the Kaggle API
-To use the Kaggle command below, you must first set up your Kaggle API credentials:
-
-1. Go to your [Kaggle Account Settings](https://www.kaggle.com/settings/account) or create one if you don't have.  
-2. Click on **Settings** from your Profile Dashborad and Scroll to **API** and click **Create New API Token**. This will download a file named `kaggle.json`.
-3. Move the file to your home directory’s hidden `.kaggle` folder:
-   ```bash
-   mkdir -p ~/.kaggle
-   mv ~/Downloads/kaggle.json ~/.kaggle/
-   chmod 600 ~/.kaggle/kaggle.json
-   ```
-   - `~/.kaggle/` is where the Kaggle CLI looks for your credentials.  
-   - `chmod 600` ensures your key file is private and secure.
-4. Verify installation:
-   ```bash
-   kaggle --version
-   ```
-   If you see a version number (e.g., `Kaggle API 1.7.4.5`), your setup is correct.
-
-Once configured, run this inside the notebook or terminal:
-```bash
-kaggle datasets download -d rush4ratio/video-game-sales-with-ratings -p data/ --unzip
-```
-
-This command will automatically create the `data/` folder (if missing) and extract the CSV file for analysis.
-
----
-
-## 🔍 EDA Outline
-
-1. **Import & Setup** – Load libraries and set styles  
-2. **Data Overview** – Inspect structure, missing values, and summary stats  
-3. **Cleaning & Fixes** – Handle missing data and inconsistent values  
-4. **Feature Engineering** – Create features like `game_age`  
-5. **Univariate Analysis** – Examine distributions of sales, genres, and scores  
-6. **Bivariate Analysis** – Explore relationships (e.g., critic score vs global sales)  
-7. **Summary & Conclusions** – Highlight insights and findings  
-
----
-
-## 📈 Key Learning Goals
-
-- Apply complete EDA workflow from setup to visualization  
-- Use the Kaggle API for reproducible dataset acquisition  
-- Document findings clearly with Markdown and visual summaries  
-- Strengthen portfolio presentation for data analysis roles  
-
----
-
-## 🧾 License
-
-Dataset provided under Kaggle’s data-sharing license.  
-Project notebooks and analysis are released under the MIT License.
-
+Coverage becomes sparse after 2016. The dataset reflects physical and early-digital
+sales only and does not account for mobile, free-to-play, or post-2016 digital
+storefronts. Critic and user score data is missing for approximately 40% of titles,
+so score-based findings apply to the reviewed subset only.
