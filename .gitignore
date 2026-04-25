@@ -2,10 +2,10 @@
 # Raw and processed data are never committed.
 # See data/README.md for download instructions.
 data/raw/
+outputs/figures/
 data/processed/
 *.csv
 *.xlsx
-*.json
 *.parquet
 *.db
 

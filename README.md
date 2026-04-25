@@ -64,15 +64,6 @@ jupyter notebook notebooks/Video_Game_Sales_EDA.ipynb
 
 ---
 
-## Analysis Pipeline
-
-```
-Problem Definition → Data Loading → Inspection → Cleaning →
-Feature Engineering → EDA → Conclusions
-```
-
----
-
 ## Limitations
 
 Coverage becomes sparse after 2016. The dataset reflects physical and early-digital
