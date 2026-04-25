@@ -7,9 +7,9 @@ requires-python = ">=3.14"
 dependencies = [
     "kaggle>=2.0.0",
     "matplotlib>=3.10.8",
+    "nbstripout>=0.9.1",
     "numpy>=2.4.3",
     "pandas>=3.0.1",
-    "plotly>=6.6.0",
     "pyarrow>=23.0.1",
     "seaborn>=0.13.2",
 ]
